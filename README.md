@@ -11,11 +11,11 @@ Make sure you have the following tools installed:
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Kubernetes CLI](https://kubernetes.io/docs/user-guide/prereqs/)
 * [git](https://git-scm.com/downloads)
-* For deployments to Kubernetes on the IBM Cloud: [Create Account](https://console.bluemix.net/registration/)
-* For deployments to Kubernetes on the IBM Cloud: [IBM Cloud CLI](https://clis.ng.bluemix.net/)
-* For Angular: [Angular CLI](https://github.com/angular/angular-cli)
-* For React: [React CLI](https://github.com/facebook/create-react-app)
-* For Vue: [Vue CLI](https://github.com/vuejs/vue-cli)
+* [Create Account](https://console.bluemix.net/registration/) (for deployments to Kubernetes on the IBM Cloud)
+* [IBM Cloud CLI](https://clis.ng.bluemix.net/) (for deployments to Kubernetes on the IBM Cloud)
+* [Angular CLI](https://github.com/angular/angular-cli) (for Angular)
+* React: [React CLI](https://github.com/facebook/create-react-app) (for React)
+* Vue: [Vue CLI](https://github.com/vuejs/vue-cli) (for Vue)
 
 Clone the repo:
 
@@ -78,7 +78,7 @@ $ docker push nheidloff/angular-app
 
 Deploy the application to Kubernetes on the IBM Cloud:
 
-Change the Docker image name in [kube-angular.yaml](angular/kube-angular.yaml). By default an image is used from DockerHub.
+Change the Docker image name in [kube-angular.yaml](angular-app/kube-angular.yaml). By default an image is used from DockerHub.
 
 ```sh
 $ bx plugin install container-service -r Bluemix
@@ -153,7 +153,7 @@ $ docker push nheidloff/react-app
 
 Deploy the application to Kubernetes on the IBM Cloud:
 
-Change the Docker image name in [kube-react.yaml](angular/kube-react.yaml). By default an image is used from DockerHub.
+Change the Docker image name in [kube-react.yaml](react-app/kube-react.yaml). By default an image is used from DockerHub.
 
 ```sh
 $ bx plugin install container-service -r Bluemix
@@ -228,7 +228,7 @@ $ docker push nheidloff/vue-app
 
 Deploy the application to Kubernetes on the IBM Cloud:
 
-Change the Docker image name in [kube-vue.yaml](angular/kube-vue.yaml). By default an image is used from DockerHub.
+Change the Docker image name in [kube-vue.yaml](vue-app/kube-vue.yaml). By default an image is used from DockerHub.
 
 ```sh
 $ bx plugin install container-service -r Bluemix
