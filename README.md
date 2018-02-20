@@ -1,9 +1,18 @@
 # Deployments of Angular, React and Vue Applications on Kubernetes
 
-This project describes how to deploy Angular, React and Vue applications to Kubernetes on the IBM Cloud.
+This project describes how to deploy [Angular](https://angular.io/), [React](https://reactjs.org/) and [Vue](https://vuejs.org/) applications to [Kubernetes](https://kubernetes.io/) on the [IBM Cloud](https://ibm.biz/nheidloff).
 
+Jump to the documentation of your preferred web framework:
 
-**Prerequisites**
+* [Angular](#angular)
+* [React](#react)
+* [Vue](#vue)
+
+In order to serve the web applications, [nginx](https://www.nginx.com/) is used. Check out [nginx.conf](angular-app/nginx.conf) for a simple sample configuration. The file also shows how to access other domains via HTTP. 
+
+The built web applications in the dist/build folders are copied on a Docker image. The image extends the standard nginx image from DockerHub. 
+
+In order to deploy the applications to Kubernetes, the Docker images are pushed to Docker registries and the Kubernetes configurations are deployed via the kubectl CLI.
 
 Make sure you have the following tools installed:
 
@@ -11,11 +20,11 @@ Make sure you have the following tools installed:
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Kubernetes CLI](https://kubernetes.io/docs/user-guide/prereqs/)
 * [git](https://git-scm.com/downloads)
-* [Create Account](https://console.bluemix.net/registration/) (for deployments to Kubernetes on the IBM Cloud)
+* [Create Account](https://ibm.biz/nheidloff) (for deployments to Kubernetes on the IBM Cloud)
 * [IBM Cloud CLI](https://clis.ng.bluemix.net/) (for deployments to Kubernetes on the IBM Cloud)
 * [Angular CLI](https://github.com/angular/angular-cli) (for Angular)
-* React: [React CLI](https://github.com/facebook/create-react-app) (for React)
-* Vue: [Vue CLI](https://github.com/vuejs/vue-cli) (for Vue)
+* [React CLI](https://github.com/facebook/create-react-app) (for React)
+* [Vue CLI](https://github.com/vuejs/vue-cli) (for Vue)
 
 Clone the repo:
 
@@ -23,7 +32,7 @@ Clone the repo:
 $ git clone https://github.com/nheidloff/web-apps-kubernetes.git
 ```
 
-
+<a name="angular"></a>
 ## Angular
 
 Create a new application or use the provided sample application which has been generated with the Angular CLI:
@@ -86,7 +95,7 @@ $ bx login -a https://api.ng.bluemix.net
 $ bx cs region-set us-south
 $ bx cs clusters
 $ bx cs cluster-config <your-cluster-name>
-$ export ... (copy the output of previous command)
+$ 'export ...' (copy the output of previous command)
 $ kubectl apply -f kube-angular.yaml
 ```
 
@@ -99,7 +108,7 @@ $ kubectl describe service angular-app
 
 Copy the public IP address of your cluster and the NodePort, e.g. 33838, and open the app in a browser.
 
-
+<a name="react"></a>
 ## React
 
 Create a new application or use the provided sample application which has been generated with the React CLI:
@@ -161,7 +170,7 @@ $ bx login -a https://api.ng.bluemix.net
 $ bx cs region-set us-south
 $ bx cs clusters
 $ bx cs cluster-config <your-cluster-name>
-$ export ... (copy the output of previous command)
+$ 'export ...' (copy the output of previous command)
 $ kubectl apply -f kube-react.yaml
 ```
 
@@ -174,7 +183,7 @@ $ kubectl describe service react-app
 
 Copy the public IP address of your cluster and the NodePort, e.g. 33838, and open the app in a browser.
 
-
+<a name="vue"></a>
 ## Vue
 
 Create a new application or use the provided sample application which has been generated with the Vue CLI:
@@ -236,7 +245,7 @@ $ bx login -a https://api.ng.bluemix.net
 $ bx cs region-set us-south
 $ bx cs clusters
 $ bx cs cluster-config <your-cluster-name>
-$ export ... (copy the output of previous command)
+$ 'export ...' (copy the output of previous command)
 $ kubectl apply -f kube-vue.yaml
 ```
 
